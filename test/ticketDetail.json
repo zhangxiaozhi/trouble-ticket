@@ -1,0 +1,35 @@
+ {
+    "success": true,
+    "result": 
+      {
+        "ticketNumber": "20161207084443400",
+        "ticketExtSystemInfoId": "bce-ticket_20151207084443400",
+        "ticketPriority": "P3",
+        "customerAccountId": "liuhongtao03",
+        "ticketCreatorUserId": "cuipeng03",
+        "ticketCreationTime": "2015-12-10T15:59:59Z",
+        "ticketResolverList": "xieziyu,zhangxiaozhi",
+        "ticketResolverGroupId": "BCC-VM",
+        "ticketState": "Pending",
+        "ticketProblem": "服务器不能用的原因估计是下载的软件带病毒",
+        "ticketProblemSummary": "主要原因是客户内容违规",
+        "ticketRootCauseId": "root cause 3",
+        "ticketPostContent": [{
+          "userID": "xieziyu",
+          "postTime": "2015-12-16T15:57:59Z",
+          "postContent": "已经找TS询问详情。"      
+          }, {
+          "postContent": "已经告诉TS叫客户清理违规内容",
+          "postTime": "2015-12-18T15:59:59Z",
+          "userID": "zhangxiaozhi"
+          }, {
+          "postContent": "正在处理",
+          "postTime": "2015-12-18T15:58:59Z",
+          "userID": "zhangxiaozhi"
+          }]
+      }
+}
+
+
+
+

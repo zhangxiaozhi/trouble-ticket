@@ -1,0 +1,140 @@
+<div class="row">
+  <div class="col-lg-12">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="Ticket Information">
+      <button class="btn btn-primary btn-sm" ng-show="!showEdit" ng-click="submitEdit()">update</button>
+      <button class="btn btn-primary btn-sm" ng-show="showEdit" ng-click="isEdit()">edit</button>
+      <button class="btn btn-default btn-sm" ng-show="!showEdit" ng-click="isEdit()">cancle</button>
+      <button class="btn btn-danger btn-sm" ng-click="deleteTicket()">Delete</button>
+      <button class="btn btn-info btn-sm" ng-click="goBack()">Back</button>
+      </rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive">
+          <table ng-hide="!showEdit" class="detailInfo col-lg-12">
+            <tbody>
+              <tr>
+                  <th>工单编号</th>
+                  <td>{{ticketInfo.ticketNumber}}</td>
+                  <th>创建者</th>
+                  <td>{{ticketInfo.ticketCreatorUserId}}</td>
+                  <th>工单状态</th>
+                  <td>{{ticketInfo.ticketState}}</span></td>                 
+              </tr>
+              <tr>
+                  <th>优先级</th>
+                  <td>{{ticketInfo.ticketPriority}}</td>                   
+                  <th>解决者</th>
+                  <td>{{ticketInfo.ticketResolverList}}</td>
+                  <th>工单处理组</th>
+                  <td>{{ticketInfo.ticketResolverGroupId}}</td>                          
+              </tr>
+              <tr>                 
+                  <th>处理结果</th>
+                  <td>{{ticketInfo.ticketRootCauseId}}</td>
+                  <th>用户ID</th>
+                  <td>{{ticketInfo.customerAccountId}}</td>                 
+                  <th>创建时间</th>
+                  <td>{{ticketInfo.ticketCreationTime}}</td>                       
+              </tr> 
+              <tr>                  
+                  <th>外部工单编号</th>
+                  <td colspan="6">{{ticketInfo.ticketExtSystemInfoId}}</td>
+              </tr>                           
+              <tr>
+                  <th>问题总结</th>
+                  <td colspan="6">{{ticketInfo.ticketProblemSummary}}</td>
+              </tr>    
+              <tr>
+                  <td colspan="6">操作记录</td>
+              </tr>
+              <tr>
+                  <td colspan="6">
+                     <div class="communication-panel" ng-repeat="content in contentList">
+<!--                         <div class="communication-content" style="border-top: 0"> -->
+                        <div class="communication-content">
+                            <div class="communication-content-box">
+                                <div class="communication-content-top">
+                                    <span class="service">{{content.userID}}</span>
+                                    <span class="margin-left">{{content.postTime}}</span>
+                                </div>
+                                <div class="communication-content-ask">                
+                                    <!-- <div class="margin-left" style="color:#3291da">修改状态为：{{content.operationState}}</div> -->
+                                    <div>{{content.postContent}}</div>
+                                </div>
+                            </div>
+                        </div>                    
+                     </div>
+                  </td>
+              </tr>  
+            </tbody>
+  
+            <form ng-name="editTable">
+            <table ng-hide="showEdit" class="detailInfo col-lg-12">
+            <tbody>
+              <tr>
+                  <th>工单编号</th>
+                  <td>{{ticketInfo.ticketNumber}}</td>
+                  <th>创建者</th>
+                  <td>{{ticketInfo.ticketCreatorUserId}}</td> 
+                  <th>工单状态</th>
+                  <td>
+                    <select name="state" class="form-control" ng-model="ticketInfo.ticketState">
+                      <option ng-repeat="ticketState in ticketStates" ng-selected="ticketInfo.ticketState == ticketState">{{ticketState}}
+                      </option>
+                    </select>
+                  </td>
+              </tr>
+              <tr>
+                  <th>优先级</th>
+                  <td>
+                    <select class="form-control" ng-model="ticketInfo.ticketPriority">
+                      <option ng-repeat="ticketPriority in ticketPriorities" ng-selected="ticketInfo.ticketPriority == ticketPriority">{{ticketPriority}}
+                      </option>
+                    </select>
+                  </td>                                   
+                  <th>解决者</th>
+                  <td><input class="form-control" type="text" ng-model="ticketInfo.ticketResolverList" /></td>
+                  <th>工单处理组</th>
+                  <td>
+                    <select class="form-control" ng-model="ticketInfo.ticketResolverGroupId" ng-options="ticketResolverGroupId for ticketResolverGroupId in resolverGroupIds">    
+                    </select>
+                  </td>                          
+              </tr> 
+              <tr>                 
+                  <th>处理结果</th>
+                  <td>
+                    <select class="form-control" ng-model="ticketInfo.ticketRootCauseId">
+                      <option ng-repeat="ticketRootCauseId in rootCauseIds" ng-selected="ticketInfo.ticketRootCauseId == ticketRootCauseId">{{ticketRootCauseId}}
+                      </option>
+                    </select>
+                  </td> 
+                  <th>用户ID</th>
+                  <td>{{ticketInfo.customerAccountId}}</td>                  
+                  <th>创建时间</th>
+                  <td>{{ticketInfo.ticketCreationTime}}</td> 
+              </tr> 
+              <tr>
+                  <th>外部工单编号</th>
+                  <td colspan="6">{{ticketInfo.ticketExtSystemInfoId}}</td>                 
+              </tr>                         
+              <tr>
+                  <th>问题总结</th>
+                  <td colspan="6"><input class="form-control" type="text" ng-model="ticketInfo.ticketProblemSummary"/></td>
+              </tr> 
+              <tr>
+                  <td colspan="6">操作记录</td>
+              </tr>
+              <tr>
+                  <td colspan="6">
+                    <textarea class="form-control" rows="8" ng-model="ticketInfo.PostContent">   
+                   </textarea>
+                  </td>
+              </tr>  
+            </tbody>
+          </table>
+        </form>
+        </div>      
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+</div>

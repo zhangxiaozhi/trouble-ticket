@@ -1,0 +1,10 @@
+ {
+    "success": true,
+    "result": [
+        "Process",
+        "Pending",
+        "Resolved",
+        "Closed",
+        "Deleted"
+    ]
+}

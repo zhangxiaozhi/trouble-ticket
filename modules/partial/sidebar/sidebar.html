@@ -1,0 +1,38 @@
+<div id="sidebar-wrapper">
+  <ul class="sidebar">
+    <li class="sidebar-main">
+      <a ng-click="toggleSidebar()">
+        工单系统
+        <span class="menu-icon glyphicon glyphicon-transfer"></span>
+      </a>
+    </li>
+    <li class="sidebar-title"><span>Resolver Group</span></li>
+    <li class="sidebar-list">
+      <a href="#/ticket/all">我的工单<span class="menu-icon fa fa-table"></span></a>
+    </li>
+    <li class="sidebar-list" ng-repeat="(key,value) in resolverGroupList">
+      <a href="#/ticket/{{key}}" ng-if="value == ''">{{key}}<span class="menu-icon fa fa-table"></span></a>
+      <a href="#/ticket" ng-click="listToggle(key)" ng-if="value != ''">{{key}}<span class="menu-icon fa fa-table"></span></a>
+      <ul ng-hide="flag[key]">
+        <li ng-repeat="item in value"><a class="list" href="#/ticket/{{item}}">{{item}}</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="sidebar-footer">
+    <!-- <div class="col-xs-4">
+      <a href="https://github.com/rdash/rdash-angular" target="_blank">
+        Github
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a href="https://github.com/rdash/rdash-angular/blob/master/README.md" target="_blank">
+        About
+      </a>
+    </div>
+    <div class="col-xs-4">
+      <a href="#">
+        Support
+      </a>
+    </div> -->
+  </div>
+</div>

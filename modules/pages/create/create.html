@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-lg-12">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="Create Ticket ">
+      <button class="btn btn-primary btn-sm" ng-show="true" ng-click="submitCreate()">submit</button>
+      <button class="btn btn-default btn-sm" ng-show="true" ng-click="cancleCreate()">cancle</button>
+      </rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive" style="padding:35px 100px 50px 100px">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">ResolverGroup</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="createInfo.ticketResolverGroupId" ng-options="ticketResolverGroupId for ticketResolverGroupId in resolverGroupIds" required>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">ResolverList</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="多个resolver请以英文逗号分开" ng-model="createInfo.ticketResolverList">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">优先级</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="createInfo.ticketPriority" ng-options="ticketPriority for ticketPriority in ticketPriorities">
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">外部工单编号</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="请输入外部工单编号" ng-model="createInfo.ticketExtSystemInfoId">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">RootCause</label>
+              <div class="col-sm-10">
+                <select class="form-control" ng-model="createInfo.ticketRootCauseId" ng-options="ticketRootCauseId for ticketRootCauseId in rootCauseIds">
+                </select>
+              </div>
+            </div> 
+            <div class="form-group">
+              <label class="col-sm-2 control-label">ProblemSummary</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="6" placeholder="请输入ProblemSummary" ng-model="createInfo.ticketProblemSummary">
+                </textarea>
+              </div>
+            </div>    
+            <div class="form-group">
+              <label class="col-sm-2 control-label">PostContent</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" rows="6" placeholder="请输入PostContent" ng-model="createInfo.ticketPostContent">
+                </textarea>
+              </div>
+            </div>      
+          </form>
+        </div>      
+      </rd-widget-body>
+    </rd-widget>
+  </div>
+ 
+</div>
+
+
+

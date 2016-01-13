@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-lg-12">
+    <rd-widget>
+      <rd-widget-header icon="fa-tasks" title="Ticket List">
+        <a class="btn btn-primary btn-sm" href="#/create"><span class="glyphicon glyphicon-plus"></span>&nbsp;new ticket</a>
+      </rd-widget-header>
+      <rd-widget-body classes="medium no-padding">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>工单编号</th>
+                <th>优先级</th>
+                <th>状态</th>
+                <th>owner</th>
+                <th>resolver</th>
+                <th>group</th>
+                <th>操作</th>
+              </tr>
+              <tr ng-repeat="ticket in ticketList">
+                <td><a href="#/detail/{{ticket.ticketNumber}}/info">{{ticket.ticketNumber}}</a></td>
+                <td>{{ticket.ticketPriority}}</td>
+                <td>{{ticket.ticketState}}</td>
+                <td>{{ticket.ticketCreatorUserId}}</td>
+                <td>{{ticket.ticketResolverList}}</td>
+                <td>{{ticket.ticketResolverGroupId}}</td>
+                <td><!-- <a href="#/detail/{{ticket.ticketNumber}}/info">查看</a>&nbsp --><a href="#/detail/{{ticket.ticketNumber}}/edit">更新</a>&nbsp<a href="" ng-click="deleteTicket(ticket.ticketNumber)">删除</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>      
+      </rd-widget-body>
+      <rd-widget-footer>
+      
+
+
+
+      <div class="page-list">
+        <ul class="pagination" ng-show="conf.totalItems > 0">
+            <li ng-class="{disabled: conf.currentPage == 1}" ng-click="prevPage()">
+              <span>&laquo;</span>
+            </li>
+            <li ng-repeat="item in pageList track by $index" ng-class="{active: item == conf.currentPage, separate: item == '...'}"
+            ng-click="changeCurrentPage(item)">
+              <span>{{ item }}</span>
+            </li>
+            <li ng-class="{disabled: conf.currentPage == conf.numberOfPages}" ng-click="nextPage()"><span>&raquo;</span></li>
+        </ul>
+            <div class="page-total" ng-show="conf.totalItems > 0">第
+              <input type="text" ng-model="jumpPageNum"  ng-keyup="jumpToPage($event)"/>页 
+            每页<select ng-model="conf.itemsPerPage" ng-options="option for option in conf.perPageOptions " ng-change="reset()"></select>
+            /共<strong>{{ conf.totalItems }}</strong>条
+            </div>
+            <div class="no-items" ng-show="conf.totalItems <= 0">暂无数据</div>
+        </div>
+
+
+
+
+
+        <!-- <ul class="pagination pagination-sm pull-right">
+          <li><a href="#">&laquo;</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul> -->
+        <div class="clearfix"></div>
+      </rd-widget-footer>
+    </rd-widget>
+  </div>
+</div>

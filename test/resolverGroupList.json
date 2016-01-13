@@ -1,0 +1,20 @@
+ {
+    "success": true,
+    "result": {
+        "BCC": [
+            "BCC-VM",
+		    "BCC-Network_BLB_BSS"
+        ],
+        "BAE": [
+        	"BAE_Pro",
+	        "BAE_Base"
+        ],
+        "BOS": [],
+        "CDS": [],
+        "RDS": [],
+        "BMR": [],
+        "SCS": [],
+        "BILLING": [],
+        "OCR_RD": []
+    }
+}
